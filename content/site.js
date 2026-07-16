@@ -59,5 +59,19 @@ export const MEDIA = {
 
   packshot: '/img/packshot.jpg',      // pote Gut Balance (fundo creme)
   preparo: '/img/preparo.jpg',        // dose sendo servida no copo
+
+  // Loops de ambiente (.mov entregue como .mp4 pelo Cloudinary)
+  loop1: 'https://res.cloudinary.com/dlzrfhwin/video/upload/f_auto,q_auto/v1777564146/PRANA_GIF_15_knagfm.mp4',
+  loop2: 'https://res.cloudinary.com/dlzrfhwin/video/upload/f_auto,q_auto/v1784238877/PRANA_GIF_10_vjicsb.mp4',
+  loop3: 'https://res.cloudinary.com/dlzrfhwin/video/upload/f_auto,q_auto/v1784238889/PRANA_GIF_2_mh1lqd.mp4',
+
+  // Filme principal + poster (primeiro frame do vídeo)
+  filme: 'https://res.cloudinary.com/dlzrfhwin/video/upload/f_auto,q_auto/v1784238931/PRANA_GUT_BALANCE_V2_lto30l.mp4',
+  filmePoster: 'https://res.cloudinary.com/dlzrfhwin/video/upload/so_0/v1784238931/PRANA_GUT_BALANCE_V2_lto30l.jpg',
+
+  // Fotos lifestyle
+  foto1: 'https://res.cloudinary.com/dlzrfhwin/image/upload/f_auto,q_auto/v1777564138/4K7A5478_lf08bw.jpg',
+  foto2: 'https://res.cloudinary.com/dlzrfhwin/image/upload/f_auto,q_auto/v1777564139/4K7A5293_mcailn.jpg',
+
   lifestyle: '/img/preparo.jpg',
 };

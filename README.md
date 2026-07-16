@@ -1,39 +1,73 @@
-# Gut Balance · Microsite (Prana Nutrition®)
+# Body Thin, site Next.js para bodythin.com.br
 
-Microsite de produto único em **Next.js 15 (App Router) + React 19**, focado em SEO, AEO e GEO.
-Home científica + **25 páginas internas** de conteúdo (ingredientes, conceitos de saúde intestinal e páginas de produto), fortemente interligadas.
+Microsite premium do Body Thin, construído em Next.js (App Router), pronto para o fluxo GitHub e Vercel. Build validado. Todas as 11 páginas são pré-renderizadas como HTML estático (o Google recebe HTML pronto) e a navegação entre páginas acontece sem recarregar a tela (sensação de aplicativo).
 
-## Como publicar (mesmo fluxo do Body Thin)
-1. Extraia este ZIP.
-2. Suba o conteúdo da pasta `gutbalance-next/` para um repositório no GitHub.
-3. Conecte o repositório à **Vercel** (framework detectado automaticamente: Next.js).
-4. A Vercel builda e publica em ~2 min. A cada push, rebuild automático.
-5. Configure o domínio **gutbalance.com.br** na Vercel e registre no Google Search Console.
+## Onde você edita (sem tocar em código)
 
-Não é preciso terminal: é só GitHub → Vercel.
+Todo o conteúdo editável vive na pasta `content/`:
 
-## Onde editar (fonte única de dados)
-Tudo que muda com frequência está em **`content/site.js`**:
-- `SITE.dominio` — hoje `https://www.gutbalance.com.br` (troque se o domínio for outro).
-- `SITE.checkout` — link real do produto na loja (já configurado).
-- `SITE.preco.referencia` — valor de referência exibido (hoje R$247,20). O preço promocional vive na loja, então nunca desatualiza aqui.
-- `MEDIA` — imagens. Hoje usam arquivos locais em `/public/img/` (`packshot.jpg`, `preparo.jpg`). Pode trocar por URLs do Cloudinary quando quiser.
+| Arquivo | O que tem |
+|---|---|
+| `content/site.js` | Preço, link de compra, faixa do topo, slogan, contatos e texto legal. Mudou o preço na loja? Edite aqui, em um único lugar, e o site inteiro atualiza. |
+| `content/paginas.js` | O texto completo das 10 páginas de suporte: títulos, meta, corpo, perguntas frequentes e links. |
 
-Os 25 artigos ficam em **`content/paginas.js`** (texto, FAQ, links, schema por página).
+A home está em `app/page.js`. Os textos dela são legíveis e editáveis direto no arquivo, mas se preferir, me peça a alteração que eu entrego o trecho pronto.
 
-## PENDENTE opcional: tabela nutricional numérica
-O dossiê recebido não trouxe a tabela com os valores por dose (mg de cada ativo).
-O campo `SITE.nutricional` está como `null` (editável). Se quiser exibir os valores por porção (8g),
-me envie os números do rótulo ou uma foto legível do painel nutricional que eu insiro.
-Hoje o site apresenta a **lista de ingredientes verbatim** e manda consultar o rótulo para as quantidades.
+## Estrutura do projeto
 
-## Conformidade (importante)
-O conteúdo separa **ciência do ingrediente** (educativa) das **alegações do produto**.
-As alegações de imunidade referem-se apenas a **Vitaminas C e D e Zinco** (reconhecidas pela ANVISA).
-Aminoácidos, beta-glucana e goma acácia entram como informação científica, sem promessa terapêutica.
-O site **não** alega tratar intestino permeável, SII ou doenças, nem "detox". Suplemento alimentar, não medicamento.
+```
+app/            páginas e rotas
+  page.js       home (página principal do produto)
+  [slug]/       gera as 10 páginas de suporte a partir de content/paginas.js
+  layout.js     estrutura comum (fontes, header, footer)
+  globals.css   o design system Brisa
+  sitemap.js    sitemap.xml automático
+  robots.js     robots.txt automático
+components/     header, footer, barra fixa de compra, molduras de mídia
+content/        TODO O CONTEÚDO EDITÁVEL (preço, textos)
+public/         arquivos estáticos (suas fotos e vídeos entrarão aqui)
+```
 
-## Regras de estilo aplicadas
-- Sem travessão "—" em nenhum texto (validado).
-- Marca sempre como "Prana Nutrition®".
-- Tema roxo Gut Balance #6B5C96 + acento tangerina #E88A3C.
+## Como publicar
+
+### 1. GitHub
+1. Crie um repositório novo (sugestão: `bodythin-site`).
+2. "Add file" e depois "Upload files": arraste TODO o conteúdo desta pasta (incluindo as pastas `app`, `components`, `content`, `public` e os arquivos da raiz). Não suba `node_modules` nem `.next` (já estão ignorados pelo `.gitignore`).
+3. Confirme o commit.
+
+### 2. Vercel
+1. "Add New" e depois "Project", importe o repositório.
+2. O Vercel detecta Next.js sozinho. Não mude nada. Clique em "Deploy".
+3. Em cerca de dois minutos o site está no ar.
+
+### 3. Domínio
+1. No projeto do Vercel: "Settings" e depois "Domains".
+2. Adicione `www.bodythin.com.br` e `bodythin.com.br`.
+3. Configure o DNS no Registro.br conforme a instrução que o Vercel mostrar. O HTTPS é automático.
+
+### 4. Google
+1. No Google Search Console, adicione a propriedade `bodythin.com.br`.
+2. Envie o sitemap: `https://www.bodythin.com.br/sitemap.xml`.
+
+A partir daqui, o fluxo é o que você já conhece: edita no GitHub, o Vercel reconstrói e publica sozinho em cerca de dois minutos.
+
+## Fotos e vídeos
+Os espaços de mídia estão marcados com molduras tracejadas (componente `MediaSlot`). Quando os arquivos chegarem:
+1. Suba os arquivos na pasta `public/` (exemplo: `public/hero-loop.mp4`, `public/lifestyle.jpg`).
+2. Me peça a troca que eu entrego o código pronto de cada substituição, usando `next/image` para as fotos (otimização automática) e vídeo com poster leve.
+
+## Notas importantes
+1. A página do Body Thin no Nuvemshop deve ter texto diferente da home deste site, para o Google não tratar como conteúdo duplicado.
+2. Antes de publicar as páginas de ingrediente, vale a revisão da responsável técnica (Stefânia M. D. G. de Luna, CRF GO 6580).
+3. O botão de compra aponta para o checkout do Nuvemshop. Se a URL do produto mudar na loja, atualize `checkout` em `content/site.js`.
+
+## Mídia (vídeos e fotos)
+Vídeos e fotos vêm do Cloudinary, configurados em `content/site.js` (bloco MEDIA):
+- 3 loops de ambiente (faixa logo abaixo do topo), o filme principal (seção "Veja em movimento", com play e som) e 2 fotos lifestyle na galeria.
+- Os arquivos `.mov` são entregues como `.mp4` pelo Cloudinary (transcodificação automática). Se algum não tocar em algum navegador, me avise que ajusto o formato.
+- O recorte dos loops usa proporção 4/5 (retrato). Se o vídeo original for horizontal e o corte não ficar ideal, dá pra ajustar num só lugar no CSS (`.loops-strip .loop`).
+
+## Rastreamento
+`components/Analytics.js` carrega GA4 (G-S45LFVW09L), Meta Pixel (867909417446170) e RD Station.
+`components/PageviewTracker.js` conta as trocas de página do Next (senão só a 1ª página contaria).
+Os IDs ficam no topo desses arquivos.

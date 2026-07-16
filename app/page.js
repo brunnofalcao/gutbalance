@@ -3,6 +3,8 @@ import { SITE, MEDIA } from '../content/site';
 import JsonLd from '../components/JsonLd';
 import StickyBar from '../components/StickyBar';
 import Marquee from '../components/Marquee';
+import VideoLoop from '../components/VideoLoop';
+import MainVideo from '../components/MainVideo';
 import { InfoImunidade70, InfoPreparo, InfoComposicao, InfoSinergia, InfoBarreira, InfoMicrobiota } from '../components/Infographics';
 
 export const metadata = {
@@ -85,6 +87,16 @@ export default function Home() {
 
       <Marquee />
 
+      <section className="loops-sec">
+        <div className="wrap">
+          <div className="loops-strip">
+            <VideoLoop src={MEDIA.loop1} label="Gut Balance em movimento" className="loop" />
+            <VideoLoop src={MEDIA.loop2} label="Preparo do Gut Balance" className="loop" />
+            <VideoLoop src={MEDIA.loop3} label="Sabor tangerina" className="loop" />
+          </div>
+        </div>
+      </section>
+
       <section id="intestino" className="science" style={{ paddingBottom: 0 }}>
         <div className="wrap">
           <span className="sec-eyebrow tag rv">Por que o intestino importa</span>
@@ -166,12 +178,31 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="filme" className="film">
+        <div className="wrap">
+          <span className="sec-eyebrow tag rv">Veja em movimento</span>
+          <h2 className="sec-title rv d1">O Gut Balance em um minuto</h2>
+          <p className="sec-intro rv d1">Do pote ao copo: conheça o suplemento de saúde intestinal e imunidade da Prana Nutrition®.</p>
+          <div style={{ marginTop: 40 }}>
+            <MainVideo src={MEDIA.filme} poster={MEDIA.filmePoster} label="Filme do Gut Balance da Prana Nutrition®" />
+          </div>
+        </div>
+      </section>
+
       <section id="galeria" className="gallery">
         <div className="wrap">
           <span className="sec-eyebrow tag rv">Na prática</span>
           <h2 className="sec-title rv d1">Uma dose, um copo de água, todos os dias</h2>
-          <div className="photo-frame rv" style={{ minHeight: 460, marginTop: 40 }}>
-            <Image src={MEDIA.preparo} alt="Gut Balance sendo preparado: dose sendo servida em um copo de água com tangerina ao lado" fill sizes="100vw" />
+          <div className="gal-grid" style={{ marginTop: 40 }}>
+            <div className="photo-frame rv" style={{ minHeight: 420 }}>
+              <Image src={MEDIA.foto1} alt="Gut Balance da Prana Nutrition® no dia a dia" fill sizes="(max-width:760px) 100vw, 50vw" />
+            </div>
+            <div className="photo-frame rv d1" style={{ minHeight: 420 }}>
+              <Image src={MEDIA.foto2} alt="Ritual do Gut Balance sabor tangerina" fill sizes="(max-width:760px) 100vw, 50vw" />
+            </div>
+          </div>
+          <div className="photo-frame rv d2" style={{ minHeight: 420, marginTop: 20 }}>
+            <Image src={MEDIA.preparo} alt="Dose do Gut Balance sendo servida em um copo de água com tangerina ao lado" fill sizes="100vw" />
           </div>
         </div>
       </section>
