@@ -13,6 +13,7 @@ export default function Header() {
             <Link href="/#intestino">O intestino</Link>
             <Link href="/#formula">Ingredientes</Link>
             <Link href="/#ciencia">A ciência</Link>
+            <Link href="/tecnologia-lha">Tecnologia LHA</Link>
             <Link href="/como-tomar">Como tomar</Link>
             <Link href="/#duvidas">Dúvidas</Link>
           </nav>

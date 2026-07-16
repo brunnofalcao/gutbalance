@@ -367,3 +367,7 @@ footer .brand-logo img,footer img[alt="Prana Nutrition®"]{max-width:210px}
 @media(max-width:760px){.gal-grid{grid-template-columns:1fr}}
 /* ── Filme ── */
 .film .vwrap{max-width:920px;margin:0 auto}
+
+/* ── Aviso médico (YMYL) ── */
+.aviso{background:#FBF3EC;border-left:4px solid var(--pineapple);border-radius:10px;padding:15px 20px;margin:0 0 30px;font-size:14.5px;color:#6a5a48;line-height:1.6}
+.aviso strong{color:#c06a1f}

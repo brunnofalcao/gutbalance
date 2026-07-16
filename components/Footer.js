@@ -20,6 +20,7 @@ export default function Footer() {
             <Link href="/como-tomar">Como tomar</Link>
             <Link href="/gut-balance-funciona">Gut Balance funciona?</Link>
             <Link href="/ingredientes">Ingredientes e fórmula</Link>
+            <Link href="/tecnologia-lha">Tecnologia LHA</Link>
             <Link href="/mitos-e-fatos">Detox intestinal: mitos</Link>
             <Link href="/contraindicacoes">Contraindicações</Link>
           </div>
@@ -45,6 +46,17 @@ export default function Footer() {
             <Link href="/prebioticos">Prebióticos</Link>
             <Link href="/fibras">Fibras</Link>
             <Link href="/imunidade-intestino">Imunidade e intestino</Link>
+          </div>
+          <div>
+            <h4>Comer menos e emagrecimento</h4>
+            <Link href="/glp1-apetite-e-intestino">Comer muito menos</Link>
+            <Link href="/analogos-glp1">Análogos de GLP-1</Link>
+            <Link href="/glp1-efeitos-gastrointestinais">Efeitos gastrointestinais</Link>
+            <Link href="/comer-menos-fibras">Comer menos e as fibras</Link>
+            <Link href="/comer-menos-micronutrientes">Vitaminas e minerais</Link>
+            <Link href="/massa-magra-e-proteina">Massa magra e proteína</Link>
+            <Link href="/fibra-e-saciedade">Fibra e saciedade</Link>
+            <Link href="/suplementacao-no-emagrecimento">Suplementação no emagrecimento</Link>
           </div>
           <div>
             <h4>Prana Nutrition®</h4>

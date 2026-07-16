@@ -61,13 +61,11 @@ Os espaços de mídia estão marcados com molduras tracejadas (componente `Media
 2. Antes de publicar as páginas de ingrediente, vale a revisão da responsável técnica (Stefânia M. D. G. de Luna, CRF GO 6580).
 3. O botão de compra aponta para o checkout do Nuvemshop. Se a URL do produto mudar na loja, atualize `checkout` em `content/site.js`.
 
-## Mídia (vídeos e fotos)
-Vídeos e fotos vêm do Cloudinary, configurados em `content/site.js` (bloco MEDIA):
-- 3 loops de ambiente (faixa logo abaixo do topo), o filme principal (seção "Veja em movimento", com play e som) e 2 fotos lifestyle na galeria.
-- Os arquivos `.mov` são entregues como `.mp4` pelo Cloudinary (transcodificação automática). Se algum não tocar em algum navegador, me avise que ajusto o formato.
-- O recorte dos loops usa proporção 4/5 (retrato). Se o vídeo original for horizontal e o corte não ficar ideal, dá pra ajustar num só lugar no CSS (`.loops-strip .loop`).
-
-## Rastreamento
-`components/Analytics.js` carrega GA4 (G-S45LFVW09L), Meta Pixel (867909417446170) e RD Station.
-`components/PageviewTracker.js` conta as trocas de página do Next (senão só a 1ª página contaria).
-Os IDs ficam no topo desses arquivos.
+## Cluster GLP-1 / comer menos (novo)
+8 páginas novas capturando o tráfego de emagrecedores/GLP-1 pelo ângulo defensável ("nutrição de quem come menos"):
+glp1-apetite-e-intestino (pilar), analogos-glp1, glp1-efeitos-gastrointestinais, comer-menos-fibras,
+comer-menos-micronutrientes, massa-magra-e-proteina, fibra-e-saciedade, suplementacao-no-emagrecimento.
+Guardrails aplicados: box de aviso médico em cada página; nomes comerciais (Ozempic, Wegovy, Mounjaro) só de forma
+factual/nominativa; Gut Balance posicionado apenas como apoio nutricional (fibra + vitaminas C/D + zinco), nunca como
+tratamento de efeito colateral; referências reais com DOI/PMID/registro em cada página.
+Total do site: 34 páginas de suporte + home = 35 URLs no sitemap.

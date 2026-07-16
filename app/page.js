@@ -5,7 +5,7 @@ import StickyBar from '../components/StickyBar';
 import Marquee from '../components/Marquee';
 import VideoLoop from '../components/VideoLoop';
 import MainVideo from '../components/MainVideo';
-import { InfoImunidade70, InfoPreparo, InfoComposicao, InfoSinergia, InfoBarreira, InfoMicrobiota } from '../components/Infographics';
+import { InfoImunidade70, InfoPreparo, InfoComposicao, InfoSinergia, InfoBarreira, InfoMicrobiota, InfoLHA } from '../components/Infographics';
 
 export const metadata = {
   title: 'Gut Balance: Suplemento para Saúde Intestinal e Imunidade | Prana Nutrition®',
@@ -122,6 +122,16 @@ export default function Home() {
             ))}
           </div>
           <InfoComposicao />
+        </div>
+      </section>
+
+      <section id="lha" className="science" style={{ background: 'var(--surface)' }}>
+        <div className="wrap">
+          <span className="sec-eyebrow tag rv">O diferencial de absorção</span>
+          <h2 className="sec-title rv d1">Tecnologia <em>LHA</em>: os nutrientes com um colete salva-vidas</h2>
+          <p className="sec-intro rv d1">Não basta ter bons ativos: importa quanto o corpo absorve. O Gut Balance usa a base lipossomal LHA, que envolve os nutrientes em lipossomas para protegê-los no trajeto digestivo e favorecer a biodisponibilidade.</p>
+          <InfoLHA />
+          <p className="note rv d1" style={{ marginTop: 12 }}>A evidência de absorção lipossomal é mais forte justamente para vitamina C e zinco, dois ativos do Gut Balance. A LHA é uma tecnologia de veiculação, não um medicamento. <a href="/tecnologia-lha" style={{ color: 'var(--forest)' }}>Entenda a ciência da LHA</a>.</p>
         </div>
       </section>
 
@@ -255,6 +265,15 @@ export default function Home() {
             <details><summary>Tem glúten, lactose ou açúcar?</summary><p>Não contém glúten nem lactose. É adoçado sem adoçantes artificiais. Pode conter traços de leite, ovo e soja por contaminação cruzada.</p></details>
             <details><summary>Quem deve evitar?</summary><p>Gestantes, lactantes, crianças e pessoas com condições de saúde específicas devem consultar um profissional antes do uso.</p></details>
           </div>
+        </div>
+      </section>
+
+      <section id="guia-comer-menos" className="science" style={{ background: 'var(--surface)' }}>
+        <div className="wrap">
+          <span className="sec-eyebrow tag rv">Guia · nutrição de quem come menos</span>
+          <h2 className="sec-title rv d1">Come muito menos? Sua nutrição muda, e o intestino também</h2>
+          <p className="sec-intro rv d1">Dieta agressiva, jejum ou medicamentos que reduzem o apetite, como os análogos de GLP-1, derrubam a ingestão de fibras, proteína e micronutrientes. Montamos um guia honesto, com referências, sobre como se proteger. O Gut Balance apoia nas frentes de fibra e imunidade, não é emagrecedor e não trata efeito de remédio.</p>
+          <a className="hero-cta rv d1" style={{ marginTop: 10 }} href="/glp1-apetite-e-intestino">Ler o guia de comer menos <span className="nadis" style={{ color: 'var(--forest)' }}>〰</span></a>
         </div>
       </section>
 

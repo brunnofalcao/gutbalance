@@ -4,7 +4,7 @@ import { PAGINAS } from '../../content/paginas';
 import { SITE, MEDIA } from '../../content/site';
 import JsonLd from '../../components/JsonLd';
 import CtaBand from '../../components/CtaBand';
-import { InfoComposicao, InfoBarreira, InfoImunidade70, InfoPreparo, InfoMicrobiota, InfoSinergia, InfoMitos, InfoFicha } from '../../components/Infographics';
+import { InfoComposicao, InfoBarreira, InfoImunidade70, InfoPreparo, InfoMicrobiota, InfoSinergia, InfoMitos, InfoFicha, InfoLHA, InfoComerMenos, InfoGLP1 } from '../../components/Infographics';
 
 function renderInfografico(ig, i) {
   switch (ig.type) {
@@ -16,6 +16,9 @@ function renderInfografico(ig, i) {
     case 'sinergia': return <InfoSinergia key={i} />;
     case 'mitos': return <InfoMitos key={i} />;
     case 'ficha': return <InfoFicha key={i} {...ig.props} />;
+    case 'lha': return <InfoLHA key={i} />;
+    case 'comer-menos': return <InfoComerMenos key={i} />;
+    case 'glp1': return <InfoGLP1 key={i} />;
     default: return null;
   }
 }
