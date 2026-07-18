@@ -60,12 +60,3 @@ Os espaços de mídia estão marcados com molduras tracejadas (componente `Media
 1. A página do Body Thin no Nuvemshop deve ter texto diferente da home deste site, para o Google não tratar como conteúdo duplicado.
 2. Antes de publicar as páginas de ingrediente, vale a revisão da responsável técnica (Stefânia M. D. G. de Luna, CRF GO 6580).
 3. O botão de compra aponta para o checkout do Nuvemshop. Se a URL do produto mudar na loja, atualize `checkout` em `content/site.js`.
-
-## Cluster GLP-1 / comer menos (novo)
-8 páginas novas capturando o tráfego de emagrecedores/GLP-1 pelo ângulo defensável ("nutrição de quem come menos"):
-glp1-apetite-e-intestino (pilar), analogos-glp1, glp1-efeitos-gastrointestinais, comer-menos-fibras,
-comer-menos-micronutrientes, massa-magra-e-proteina, fibra-e-saciedade, suplementacao-no-emagrecimento.
-Guardrails aplicados: box de aviso médico em cada página; nomes comerciais (Ozempic, Wegovy, Mounjaro) só de forma
-factual/nominativa; Gut Balance posicionado apenas como apoio nutricional (fibra + vitaminas C/D + zinco), nunca como
-tratamento de efeito colateral; referências reais com DOI/PMID/registro em cada página.
-Total do site: 34 páginas de suporte + home = 35 URLs no sitemap.

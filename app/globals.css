@@ -371,3 +371,21 @@ footer .brand-logo img,footer img[alt="Prana Nutrition®"]{max-width:210px}
 /* ── Aviso médico (YMYL) ── */
 .aviso{background:#FBF3EC;border-left:4px solid var(--pineapple);border-radius:10px;padding:15px 20px;margin:0 0 30px;font-size:14.5px;color:#6a5a48;line-height:1.6}
 .aviso strong{color:#c06a1f}
+
+/* ── Dobra especial: comer menos / GLP-1 (home) ── */
+.glp1-fold{background:var(--forest-deep);color:#F1EDF6}
+.glp1-fold .sec-eyebrow{color:var(--mint)}
+.glp1-fold .sec-title{color:#fff}
+.glp1-fold .sec-title em{color:var(--pineapple);font-style:italic}
+.glp1-fold .lead2{font-size:18px;color:#DED5EC;max-width:66ch;margin:18px 0 6px}
+.glp1-fold .infographic{background:#fff;border-color:rgba(255,255,255,.2)}
+.glp1-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:30px 0 8px}
+@media(max-width:760px){.glp1-cards{grid-template-columns:1fr}}
+.glp1-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:24px}
+.glp1-card h3{font-size:16px;color:#fff;margin-bottom:10px;font-weight:500;line-height:1.35}
+.glp1-card p{font-size:14.5px;color:#D9CFE8;line-height:1.55}
+.glp1-card .src{display:block;margin-top:12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mint)}
+.glp1-aviso{background:rgba(232,138,60,.14);border-left:3px solid var(--pineapple);border-radius:10px;padding:14px 18px;font-size:13.5px;color:#EAD9C8;line-height:1.55;margin-top:22px}
+.glp1-cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;align-items:center}
+.glp1-link{color:var(--mint);text-decoration:none;font-size:14.5px;border-bottom:1px solid rgba(185,169,214,.4);padding-bottom:2px;transition:.2s}
+.glp1-link:hover{color:#fff;border-color:#fff}

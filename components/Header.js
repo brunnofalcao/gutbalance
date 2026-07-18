@@ -14,6 +14,7 @@ export default function Header() {
             <Link href="/#formula">Ingredientes</Link>
             <Link href="/#ciencia">A ciência</Link>
             <Link href="/tecnologia-lha">Tecnologia LHA</Link>
+            <Link href="/glp1-apetite-e-intestino">Comer menos</Link>
             <Link href="/como-tomar">Como tomar</Link>
             <Link href="/#duvidas">Dúvidas</Link>
           </nav>

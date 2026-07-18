@@ -5,7 +5,7 @@ import StickyBar from '../components/StickyBar';
 import Marquee from '../components/Marquee';
 import VideoLoop from '../components/VideoLoop';
 import MainVideo from '../components/MainVideo';
-import { InfoImunidade70, InfoPreparo, InfoComposicao, InfoSinergia, InfoBarreira, InfoMicrobiota, InfoLHA } from '../components/Infographics';
+import { InfoImunidade70, InfoPreparo, InfoComposicao, InfoSinergia, InfoBarreira, InfoMicrobiota, InfoLHA, InfoGLP1 } from '../components/Infographics';
 
 export const metadata = {
   title: 'Gut Balance: Suplemento para Saúde Intestinal e Imunidade | Prana Nutrition®',
@@ -132,6 +132,41 @@ export default function Home() {
           <p className="sec-intro rv d1">Não basta ter bons ativos: importa quanto o corpo absorve. O Gut Balance usa a base lipossomal LHA, que envolve os nutrientes em lipossomas para protegê-los no trajeto digestivo e favorecer a biodisponibilidade.</p>
           <InfoLHA />
           <p className="note rv d1" style={{ marginTop: 12 }}>A evidência de absorção lipossomal é mais forte justamente para vitamina C e zinco, dois ativos do Gut Balance. A LHA é uma tecnologia de veiculação, não um medicamento. <a href="/tecnologia-lha" style={{ color: 'var(--forest)' }}>Entenda a ciência da LHA</a>.</p>
+        </div>
+      </section>
+
+      <section id="comer-menos" className="glp1-fold">
+        <div className="wrap">
+          <span className="sec-eyebrow tag rv">A ciência de comer menos</span>
+          <h2 className="sec-title rv d1">Come muito menos? A ciência mostra o que <em>muda no seu corpo</em></h2>
+          <p className="lead2 rv d1">Dieta agressiva, jejum ou medicamentos que reduzem o apetite, como os análogos de GLP-1, têm um efeito nutricional pouco falado: quando a quantidade de comida cai, a de fibras, proteína e micronutrientes cai junto. Reunimos a ciência disso, com referências, e o que fazer a respeito.</p>
+          <InfoGLP1 />
+          <div className="glp1-cards">
+            <div className="glp1-card rv d1">
+              <h3>Os análogos de GLP-1 reduzem apetite e desaceleram o estômago</h3>
+              <p>Eles agem no apetite e retardam o esvaziamento gástrico. Por isso, os efeitos adversos mais comuns são gastrointestinais: em meta-análises, náusea em cerca de 22% e constipação em torno de 7% dos usuários.</p>
+              <span className="src">Front Pharmacol, 2025 · Int J Obes, 2025</span>
+            </div>
+            <div className="glp1-card rv d2">
+              <h3>Comer muito menos derruba fibra, proteína e micronutrientes</h3>
+              <p>Menos comida é menos nutriente. Revisões associam dietas de baixa ingestão a maior risco de inadequação de vitaminas e minerais, e a queda das fibras afeta a microbiota e o intestino.</p>
+              <span className="src">Eur J Nutr, 2019</span>
+            </div>
+            <div className="glp1-card rv d3">
+              <h3>A fibra estimula o próprio GLP-1 do seu corpo</h3>
+              <p>Ao fermentar no intestino, a fibra solúvel produz ácidos graxos de cadeia curta, que estimulam hormônios de saciedade do próprio organismo, incluindo o GLP-1 e o PYY.</p>
+              <span className="src">Nutrients, 2019</span>
+            </div>
+          </div>
+          <div className="glp1-aviso rv d1">
+            <strong>Importante.</strong> Conteúdo educativo, não substitui orientação médica. O Gut Balance é um suplemento alimentar: apoia nas frentes de fibra prebiótica e imunidade (vitaminas C e D e zinco). Ele não é emagrecedor, não é fonte de proteína e não trata efeitos de nenhum medicamento. Nunca ajuste um remédio por conta própria.
+          </div>
+          <div className="glp1-cta-row rv d1">
+            <a className="hero-cta" href="/glp1-apetite-e-intestino">Ler o guia completo <span className="nadis" style={{ color: 'var(--forest)' }}>〰</span></a>
+            <a className="glp1-link" href="/comer-menos-fibras">Comer menos e as fibras</a>
+            <a className="glp1-link" href="/massa-magra-e-proteina">Massa magra e proteína</a>
+            <a className="glp1-link" href="/fibra-e-saciedade">Fibra e saciedade</a>
+          </div>
         </div>
       </section>
 
@@ -268,15 +303,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="guia-comer-menos" className="science" style={{ background: 'var(--surface)' }}>
-        <div className="wrap">
-          <span className="sec-eyebrow tag rv">Guia · nutrição de quem come menos</span>
-          <h2 className="sec-title rv d1">Come muito menos? Sua nutrição muda, e o intestino também</h2>
-          <p className="sec-intro rv d1">Dieta agressiva, jejum ou medicamentos que reduzem o apetite, como os análogos de GLP-1, derrubam a ingestão de fibras, proteína e micronutrientes. Montamos um guia honesto, com referências, sobre como se proteger. O Gut Balance apoia nas frentes de fibra e imunidade, não é emagrecedor e não trata efeito de remédio.</p>
-          <a className="hero-cta rv d1" style={{ marginTop: 10 }} href="/glp1-apetite-e-intestino">Ler o guia de comer menos <span className="nadis" style={{ color: 'var(--forest)' }}>〰</span></a>
-        </div>
-      </section>
-
       <section id="comprar" className="buy">
         <div className="wrap">
           <div className="panel">
@@ -289,11 +315,16 @@ export default function Home() {
               </div>
             </div>
             <div className="card rv d1">
-              <div className="price-ref">Valor de referência</div>
+              <div className="price-ref">Preço original</div>
               <div className="price-row"><span className="price-now">{preco.referencia}</span></div>
               <a className="promo-cta" href={checkout}>{preco.chamadaPromo} <span className="nadis" style={{ color: 'var(--azul)' }}>〰</span></a>
+              <div style={{ marginTop: 14, fontSize: 15, color: 'var(--ink)' }}>Em <b>até 5x sem juros</b></div>
+              <div style={{ marginTop: 14, padding: '14px 16px', border: '1px dashed var(--forest)', borderRadius: 12, background: 'var(--surface)' }}>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--graphite)', marginBottom: 6 }}>Primeira compra no site</div>
+                <div style={{ fontSize: 15, color: 'var(--ink)' }}>Ganhe <b>10% OFF</b> com o cupom <b style={{ color: 'var(--forest)' }}>PRIMEIRACOMPRASITE</b></div>
+              </div>
               <a className="buy-btn" href={checkout} style={{ marginTop: 20 }}>Comprar na loja oficial</a>
-              <div className="trust"><span>✓ Frete grátis +R$150</span><span>✓ Compra segura</span><span>✓ Envio para todo o Brasil</span></div>
+              <div className="trust"><span>✓ Em até 5x sem juros</span><span>✓ Compra segura</span><span>✓ Envio para todo o Brasil</span></div>
             </div>
           </div>
         </div>

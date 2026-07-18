@@ -8,7 +8,7 @@ export const SITE = {
   marca: 'Prana Nutrition®',
   produto: 'Gut Balance',
   slogan: 'Sua saúde começa no intestino.',
-  faixaTopo: 'Frete grátis acima de R$150 · Envio para todo o Brasil',
+  faixaTopo: 'Cupom PRIMEIRACOMPRASITE: 10% OFF na primeira compra · Envio para todo o Brasil',
 
   checkout: 'https://www.prananutrition.com.br/produtos/prana-gut-balance-240g-sabor-tangerina/',
   loja: 'https://www.prananutrition.com.br',
@@ -28,8 +28,11 @@ export const SITE = {
   preco: {
     referencia: 'R$247,20',
     valorNumerico: '247.20',
-    chamadaPromo: 'Acompanhe o valor promocional na loja oficial',
+    chamadaPromo: 'Acesse o link e confira o desconto ativo',
+    parcelamento: 'Em até 5x sem juros',
   },
+
+  cupom: { codigo: 'PRIMEIRACOMPRASITE', desc: '10% OFF na primeira compra' },
 
   // Ficha do produto
   ficha: {
