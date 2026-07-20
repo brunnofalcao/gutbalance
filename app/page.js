@@ -127,8 +127,8 @@ export default function Home() {
 
       <section id="lha" className="science" style={{ background: 'var(--surface)' }}>
         <div className="wrap">
-          <span className="sec-eyebrow tag rv">O diferencial de absorção</span>
-          <h2 className="sec-title rv d1">Tecnologia <em>LHA</em>: os nutrientes com um colete salva-vidas</h2>
+          <span className="sec-eyebrow tag rv">Tecnologia LHA · o diferencial de absorção</span>
+          <h2 className="sec-title rv d1">Gut Balance tem <em>maior absorção</em></h2>
           <p className="sec-intro rv d1">Não basta ter bons ativos: importa quanto o corpo absorve. O Gut Balance usa a base lipossomal LHA, que envolve os nutrientes em lipossomas para protegê-los no trajeto digestivo e favorecer a biodisponibilidade.</p>
           <InfoLHA />
           <p className="note rv d1" style={{ marginTop: 12 }}>A evidência de absorção lipossomal é mais forte justamente para vitamina C e zinco, dois ativos do Gut Balance. A LHA é uma tecnologia de veiculação, não um medicamento. <a href="/tecnologia-lha" style={{ color: 'var(--forest)' }}>Entenda a ciência da LHA</a>.</p>

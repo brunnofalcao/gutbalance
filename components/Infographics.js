@@ -195,54 +195,89 @@ export function InfoFicha({ nome, sub, cor = ROXO, papel = '', estudo = '' }) {
 
 // LHA: base lipossomal (estrutura + benefício de absorção)
 export function InfoLHA() {
-  const ROXO2 = '#6B5C96', DEEP2 = '#4A3F6B', TANG2 = '#E88A3C', LILAS2 = '#B9A9D6', G2 = '#878787', INK2 = '#0F0F0F';
-  const cx = 190, cy = 165, rOut = 108, rIn = 74;
-  const heads = [];
-  const N = 34;
+  const ROXO = '#6B5C96', DEEP = '#4A3F6B', TANG = '#E88A3C', LILAS = '#9E8FC4', G = '#878787', INK = '#0F0F0F';
+  const cx = 200, cy = 188;
+  const rCore = 56, rHeadIn = 66, rMid = 90, rHeadOut = 112, headR = 5.2, N = 30, spread = 5;
+  const lipids = [];
   for (let k = 0; k < N; k++) {
     const a = (k / N) * Math.PI * 2;
-    heads.push([cx + rOut * Math.cos(a), cy + rOut * Math.sin(a), cx + rIn * Math.cos(a), cy + rIn * Math.sin(a)]);
+    const c = Math.cos(a), s = Math.sin(a);
+    const tx = -s, ty = c; // tangente
+    const P = (r, off = 0) => [cx + r * c + off * tx, cy + r * s + off * ty];
+    lipids.push({
+      ho: P(rHeadOut), hi: P(rHeadIn),
+      // caudas externas (apontam para dentro) e internas (apontam para fora), encontrando-se em rMid
+      ot: [[P(rHeadOut - 4, 0), P(rMid, spread)], [P(rHeadOut - 4, 0), P(rMid, -spread)]],
+      it: [[P(rHeadIn + 4, 0), P(rMid, spread)], [P(rHeadIn + 4, 0), P(rMid, -spread)]],
+    });
   }
+  const mol = (x, y) => (
+    <g><circle cx={x} cy={y} r="5" fill={TANG} /><circle cx={x + 6} cy={y + 3} r="4" fill="#F0A566" /><line x1={x} y1={y} x2={x + 6} y2={y + 3} stroke={TANG} strokeWidth="2" /></g>
+  );
   return (
     <figure className="infographic rv">
-      <svg viewBox="0 0 800 340" role="img" aria-label="Tecnologia LHA: lipossoma que envolve e protege o nutriente para favorecer a absorção" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="24" fill={G2} fontFamily="var(--font-mono)" fontSize="12" letterSpacing="2">TECNOLOGIA LHA · BASE LIPOSSOMAL</text>
-        {/* núcleo aquoso com o nutriente */}
-        <circle cx={cx} cy={cy} r={rIn - 8} fill="#F1EDF6" />
-        {[[-16,-10],[14,-6],[0,14],[-8,20],[18,16]].map(([dx,dy],idx)=>(
-          <circle key={idx} cx={cx+dx} cy={cy+dy} r="6" fill={TANG2} />
-        ))}
-        {/* bicamada: cabeças + caudas */}
-        {heads.map(([ox,oy,ix,iy],idx)=>(
-          <g key={idx}>
-            <line x1={ox} y1={oy} x2={ix} y2={iy} stroke={LILAS2} strokeWidth="2" />
-            <circle cx={ox} cy={oy} r="5.5" fill={ROXO2} />
-            <circle cx={ix} cy={iy} r="5.5" fill={ROXO2} />
+      <svg viewBox="0 0 800 360" role="img" aria-label="Tecnologia LHA: lipossoma de bicamada de fosfolipidios que envolve o nutriente e favorece a absorcao" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="lhaCore" cx="42%" cy="38%" r="70%">
+            <stop offset="0%" stopColor="#FFFFFF" /><stop offset="100%" stopColor="#E7DFF2" />
+          </radialGradient>
+        </defs>
+        <text x="0" y="22" fill={G} fontFamily="var(--font-mono)" fontSize="12" letterSpacing="2">TECNOLOGIA LHA · LIPOSSOMA (BICAMADA DE FOSFOLIPÍDIOS)</text>
+
+        {/* faixa de membrana (profundidade) */}
+        <circle cx={cx} cy={cy} r={(rHeadIn + rHeadOut) / 2} fill="none" stroke="rgba(107,92,150,0.07)" strokeWidth={rHeadOut - rHeadIn} />
+        {/* núcleo aquoso */}
+        <circle cx={cx} cy={cy} r={rCore} fill="url(#lhaCore)" stroke="rgba(158,143,196,0.35)" strokeWidth="1" />
+        {mol(cx - 14, cy - 8)}{mol(cx + 6, cy + 6)}{mol(cx - 4, cy + 20)}
+        <text x={cx} y={cy - 20} textAnchor="middle" fill={G} fontFamily="var(--font-mono)" fontSize="9" letterSpacing="1">NÚCLEO AQUOSO</text>
+        <text x={cx} y={cy + 38} textAnchor="middle" fill={TANG} fontFamily="var(--font-sans)" fontSize="11">+ nutriente</text>
+
+        {/* caudas (atrás das cabeças) */}
+        {lipids.map((l, i) => (
+          <g key={'t' + i} stroke={LILAS} strokeWidth="1.5" strokeLinecap="round">
+            {l.ot.map((t, j) => <line key={'o' + j} x1={t[0][0]} y1={t[0][1]} x2={t[1][0]} y2={t[1][1]} />)}
+            {l.it.map((t, j) => <line key={'i' + j} x1={t[0][0]} y1={t[0][1]} x2={t[1][0]} y2={t[1][1]} />)}
           </g>
         ))}
-        {/* legendas do lipossoma */}
-        <text x={cx} y={cy - rOut - 14} textAnchor="middle" fill={ROXO2} fontFamily="var(--font-sans)" fontSize="13">cabeça hidrofílica</text>
-        <text x={cx} y={cy + 4} textAnchor="middle" fill={G2} fontFamily="var(--font-sans)" fontSize="12">núcleo aquoso</text>
-        <text x={cx} y={cy + 20} textAnchor="middle" fill={TANG2} fontFamily="var(--font-sans)" fontSize="12">+ o nutriente</text>
-        {/* benefícios */}
-        <text x="410" y="70" fill={INK2} fontFamily="var(--font-sans)" fontSize="18">O nutriente ganha um "colete</text>
-        <text x="410" y="94" fill={INK2} fontFamily="var(--font-sans)" fontSize="18">salva-vidas" de fosfolipídios.</text>
+        {/* cabeças hidrofílicas (duas camadas) */}
+        {lipids.map((l, i) => (
+          <g key={'h' + i}>
+            <circle cx={l.ho[0]} cy={l.ho[1]} r={headR} fill={ROXO} stroke={DEEP} strokeWidth="0.8" />
+            <circle cx={l.hi[0]} cy={l.hi[1]} r={headR} fill={ROXO} stroke={DEEP} strokeWidth="0.8" />
+          </g>
+        ))}
+
+        {/* rótulos com linha-guia */}
+        <line x1={cx} y1={cy - rHeadOut - 6} x2={cx} y2={cy - rHeadOut - 20} stroke={G} strokeWidth="1" />
+        <text x={cx} y={cy - rHeadOut - 26} textAnchor="middle" fill={ROXO} fontFamily="var(--font-sans)" fontSize="12.5">bicamada de fosfolipídios</text>
+        {/* cabeça: guia para head superior-direita */}
+        <line x1={cx + rHeadOut * Math.cos(-0.5)} y1={cy + rHeadOut * Math.sin(-0.5)} x2="332" y2="96" stroke={G} strokeWidth="1" />
+        <text x="336" y="92" fill={INK} fontFamily="var(--font-sans)" fontSize="11.5">cabeça hidrofílica</text>
+        <text x="336" y="107" fill={G} fontFamily="var(--font-sans)" fontSize="9.5">afinidade por água</text>
+        {/* caudas: guia para membrana inferior-direita */}
+        <line x1={cx + rMid * Math.cos(0.6)} y1={cy + rMid * Math.sin(0.6)} x2="332" y2="270" stroke={G} strokeWidth="1" />
+        <text x="336" y="266" fill={INK} fontFamily="var(--font-sans)" fontSize="11.5">caudas lipídicas</text>
+        <text x="336" y="281" fill={G} fontFamily="var(--font-sans)" fontSize="9.5">hidrofóbicas, guardam o núcleo</text>
+
+        {/* coluna de benefícios */}
+        <text x="470" y="70" fill={INK} fontFamily="var(--font-sans)" fontSize="18">Mais proteção no caminho,</text>
+        <text x="470" y="94" fill={INK} fontFamily="var(--font-sans)" fontSize="18">mais nutriente aproveitado.</text>
         {[
           ['Protege', 'contra a degradação no trajeto digestivo'],
           ['Transporta', 'até o sítio de absorção'],
           ['Favorece', 'a biodisponibilidade do nutriente'],
         ].map(([t, d], idx) => {
-          const y = 140 + idx * 56;
+          const y = 150 + idx * 56;
           return (
             <g key={idx}>
-              <circle cx="422" cy={y} r="7" fill={DEEP2} />
-              <text x="444" y={y - 2} fill={INK2} fontFamily="var(--font-sans)" fontSize="16">{t}</text>
-              <text x="444" y={y + 18} fill={G2} fontFamily="var(--font-sans)" fontSize="13.5">{d}</text>
+              <circle cx="482" cy={y} r="7" fill={TANG} />
+              <text x="504" y={y - 2} fill={INK} fontFamily="var(--font-sans)" fontSize="16" fontWeight="500">{t}</text>
+              <text x="504" y={y + 18} fill={G} fontFamily="var(--font-sans)" fontSize="13.5">{d}</text>
             </g>
           );
         })}
       </svg>
-      <figcaption>A base LHA envolve o nutriente em um lipossoma para protegê-lo e favorecer a absorção</figcaption>
+      <figcaption>O lipossoma é uma bicamada de fosfolipídios que envolve o nutriente em seu núcleo, protege no trajeto digestivo e favorece a absorção</figcaption>
     </figure>
   );
 }
